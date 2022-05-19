@@ -1,0 +1,94 @@
+.navbar {
+  height: 3.5rem;
+  width: 100vw;
+  background-color: white;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+  .adminArea {
+    margin-left: 5rem;
+    flex: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    span {
+      margin-left: 0.5rem;
+      font-weight: 600;
+    }
+  } 
+
+  .logoArea {
+    font-size: 1.875rem;
+    font-weight: bolder;
+    margin: 0 4rem;
+    text-align: center;
+    flex: auto;
+  }
+
+  .linkArea {
+    flex: auto;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    a {
+      font-size: 1.125rem;
+      padding: 0 1.25rem;
+      color: #515767;
+      text-decoration: none;
+    }
+
+    .active {
+      color: #1e80ff;
+    }
+  }
+
+  .operationArea {
+    flex: auto;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    i {
+      font-size: 1rem;
+      margin-right: 0.25rem;
+    }
+
+    .personal {
+      display: inline-block;
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+
+    .logout {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .loginButton {
+      width: 5rem;
+      background-color: white;
+      border-width: 2px;
+      --tw-border-opacity: 1;
+      border-color: rgba(96, 165, 250, var(--tw-border-opacity));
+      border-radius: 0.75rem;
+      cursor: pointer;
+    }
+    .loginButton:focus {
+      --tw-bg-opacity: 1;
+      background-color: rgba(219, 234, 254, var(--tw-bg-opacity));
+    }
+  }
+}

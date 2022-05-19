@@ -1,0 +1,55 @@
+.container {
+  margin: 0 auto;
+
+  .operations {
+    display: flex;
+    height: 3.75rem;
+    width: 100%;
+    padding: 0 3rem;
+    background-color: #fff;
+
+    .title {
+      font-size: 1.5rem;
+      line-height: 4rem;
+      outline: none;
+      border: 0px;
+      flex: 1 1 auto;
+    }
+    input::placeholder {
+      opacity: 0.6;
+  }
+
+    .operation {
+      margin-left: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      .space {
+        width: 12.5rem;
+        .select {
+          width: 100%;
+        }
+      }
+
+      .button {
+        width: auto;
+        height: 2rem;
+        margin-left: 1rem;
+        padding: 0 0.7rem;
+        border-radius: 0.125rem;
+        border: 0px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        text-align: center;
+        color: #fff;
+        --tw-bg-opacity: 1;
+        background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+      }
+      .button:hover {
+        --tw-bg-opacity: 0.8;
+      }
+    }
+  }
+}
+

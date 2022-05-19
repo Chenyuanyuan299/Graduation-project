@@ -1,0 +1,253 @@
+.commentArea {
+  margin: 3rem 0;
+
+  .sort {
+    display: flex;
+
+    .sortFunc {
+      padding: 0.5rem;
+      margin-right: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .sortFunc:hover {
+      --tw-text-opacity: 1;
+      color: rgba(59, 130, 246, var(--tw-text-opacity));
+    }
+
+    .selectFunc {
+      border-bottom: 1px solid rgb(59, 130, 246);
+      --tw-text-opacity: 1;
+      color: rgba(59, 130, 246, var(--tw-text-opacity));
+    }
+  }
+
+  .comment {
+    margin-bottom: 1.5rem;
+
+    .commentContent {
+      display: flex;
+      padding: 1rem 0;
+      border-top: 1px solid #e5e9ef;
+  
+      .avatar {
+        margin: 0.5rem;
+      }
+  
+      .main {
+        margin-top: 0.2rem;
+        margin-left: 0.5rem;
+        flex: 1 1 auto;
+  
+        .name {
+          padding-top: 0.2rem;
+          font-size: 0.9rem;
+          font-weight: bold;
+          color: rgb(122, 117, 117);
+        }
+  
+        .content {
+          padding: 0.2rem 0;
+        }
+  
+        .info {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+  
+          .date {
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            color: rgb(151, 151, 151);
+          }
+  
+          .like {
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            color: rgb(151, 151, 151);
+            cursor: pointer;
+            
+            i {
+              margin-right: 0.2rem;
+              font-size: 0.9rem;
+            }
+          }
+          .like:hover {
+            color: rgb(66, 144, 232);
+          }
+  
+          .is_like {
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            color: rgb(232, 81, 81);
+            cursor: pointer;
+            
+            i {
+              margin-right: 0.2rem;
+              font-size: 0.9rem;
+            }
+          }
+          
+          .replyComment {
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            color: rgb(151, 151, 151);
+            cursor: pointer;
+          }
+  
+          .replyComment:hover {
+            color: rgb(66, 144, 232);
+          }
+
+          .delete {
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            color: rgb(151, 151, 151);
+            cursor: pointer;
+
+            i {
+              margin-right: 0.2rem;
+              font-size: 0.9rem;
+            }
+          }
+
+          .delete:hover {
+            color: rgb(66, 144, 232);
+          }
+        }
+  
+        .relatedCommendArea {
+          margin-top: 0.2rem;
+  
+          .relatedComment {
+            display: flex;
+            margin-bottom: 0.5rem;
+  
+            .avatar {
+              margin: 0.2rem;
+            }
+  
+            .main {
+              margin: 0.1rem 0 0 0.2rem;
+  
+              .relname {
+                margin-right: 0.8rem;
+                font-size: 0.8rem;
+                color: rgb(107, 104, 104);
+              }
+  
+              .reluser {
+                font-size: 0.8rem;
+                color: rgb(107, 104, 104);
+  
+                .relname {
+                  margin-right: 0;
+                  cursor: pointer;
+                  color: rgb(66, 144, 232);
+                }
+                .relname:hover {
+                  color: rgb(226, 70, 235);
+                }
+              }
+        
+              .relcontent {
+                font-size: 0.8rem;
+              }
+        
+              .relinfo {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-top: 0.3rem;
+        
+                .date {
+                  margin-right: 1rem;
+                  font-size: 0.8rem;
+                  color: rgb(151, 151, 151);
+                }
+        
+                .like {
+                  margin-right: 1rem;
+                  font-size: 0.8rem;
+                  color: rgb(151, 151, 151);
+                  cursor: pointer;
+                  
+                  i {
+                    margin-right: 0.2rem;
+                    font-size: 0.8rem;
+                  }
+                }
+  
+                .like:hover {
+                  color: rgb(66, 144, 232);
+                }
+        
+                .is_like {
+                  margin-right: 1rem;
+                  font-size: 0.8rem;
+                  color: rgb(232, 81, 81);
+                  cursor: pointer;
+                  
+                  i {
+                    margin-right: 0.2rem;
+                    font-size: 0.8rem;
+                  }
+                }
+                
+                .replyComment {
+                  margin-right: 1rem;
+                  font-size: 0.8rem;
+                  color: rgb(151, 151, 151);
+                  cursor: pointer;
+                }
+  
+                .replyComment:hover {
+                  color: rgb(66, 144, 232);
+                }
+
+                .delete {
+                  margin-right: 1rem;
+                  font-size: 0.8rem;
+                  color: rgb(151, 151, 151);
+                  cursor: pointer;
+      
+                  i {
+                    margin-right: 0.2rem;
+                    font-size: 0.8rem;
+                  }
+                }
+      
+                .delete:hover {
+                  color: rgb(66, 144, 232);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.enter {
+  display: flex;
+  margin-left: 4rem;
+
+  .avatar {
+    margin: 0.5rem 1rem;
+  }
+
+  textarea {
+    margin-right: 0.5rem;
+    overflow: auto;
+    border-radius: 0.25rem;
+    outline: none;
+    resize: none;
+  }
+
+  button {
+    width: auto;
+    height: 4.8rem;
+    border-radius: 0.4rem;
+  }
+}

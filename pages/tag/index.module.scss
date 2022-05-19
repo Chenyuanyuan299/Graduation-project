@@ -1,0 +1,39 @@
+.main {
+  max-width: 1126px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+
+  .tabs {
+    margin: 0 5rem;
+
+    .tags {
+      display: flex;
+      justify-content: flex-start;
+    
+      .tagWrapper {
+        width: 13.75rem;
+        height: 12.5rem;
+        border: 1px solid #f3f3f3;
+        padding: 1.25rem;
+        margin-right: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    
+        svg {
+          width: 3.5rem;
+          height: 3.5rem;
+        }
+    
+        .title {
+          font-size: 1rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+
