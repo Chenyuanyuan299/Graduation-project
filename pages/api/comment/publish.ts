@@ -46,6 +46,8 @@ async function publish(req: NextApiRequest, res: NextApiResponse) {
     comment.create_time = new Date();
     comment.update_time = new Date();
     comment.rank = 1;
+    comment.is_delete = false;
+    comment.like_counts = 0;
     if (user) {
       comment.user = user;
     }
@@ -72,6 +74,8 @@ async function publish(req: NextApiRequest, res: NextApiResponse) {
     relComment.create_time = new Date();
     relComment.update_time = new Date();
     relComment.rank = rank;
+    relComment.is_delete = false;
+    relComment.like_counts = 0;
     if (user) {
       relComment.user = user;
     }

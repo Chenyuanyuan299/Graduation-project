@@ -30,41 +30,43 @@ async function save(req: NextApiRequest, res: NextApiResponse) {
     where: tagIds?.map((tagId: number) => ({ id: tagId })),
   });
 
-  // 如果有rel_id，说明已经发布过，现在要发布为草稿，保留原文章
-  // 如果id = 0，说明是新建草稿
-  if (rel_id || id === 0) {
-    const article = new Article();
-    article.title = title;
-    article.content = content;
-    article.is_draft = true;
-    article.create_time = new Date();
-    article.update_time = new Date();
-    article.rel_id = rel_id;
-
-    if (user) {
-      article.user = user;
-    }
-
-    const newTags = tags?.map((tag) => {
-      tag.article_count = tag?.article_count + 1;
-      return tag;
-    });
-    article.tags = newTags;
-    const resArticle = await articleRepo.save(article);
-    if (resArticle) {
-      res.status(200).json({ data: resArticle, code: 0, msg: '保存成功' });
-    } else {
-      res.status(200).json({ ...EXCEPTION_ARTICLE.SAVE_FAILED });
-    }
-    // 该文章仅发布为草稿过
-  } else if (id) {
+  if (id) {
     const article = await articleRepo.findOne({
       where: {
         id,
       },
       relations: ['user'],
     });
-    if (article) {
+    // 首先根据id判断是不是草稿，如果不是，就新建
+    if (article && article.is_draft === false) {
+      const article = new Article();
+      article.title = title;
+      article.content = content;
+      article.is_draft = true;
+      article.create_time = new Date();
+      article.update_time = new Date();
+      article.rel_id = rel_id;
+      article.is_delete = false;
+      article.like_counts = 0;
+      article.views = 0;
+
+      if (user) {
+        article.user = user;
+      }
+
+      const newTags = tags?.map((tag) => {
+        tag.article_count = tag?.article_count + 1;
+        return tag;
+      });
+      article.tags = newTags;
+      const resArticle = await articleRepo.save(article);
+      if (resArticle) {
+        res.status(200).json({ data: resArticle, code: 0, msg: '保存成功' });
+      } else {
+        res.status(200).json({ ...EXCEPTION_ARTICLE.SAVE_FAILED });
+      }
+    } else if (article && article.is_draft === true) {
+      // 如果是草稿，就更新草稿
       article.title = title;
       article.content = content;
       article.is_draft = true;
@@ -83,6 +85,33 @@ async function save(req: NextApiRequest, res: NextApiResponse) {
       } else {
         res.status(200).json({ ...EXCEPTION_ARTICLE.SAVE_FAILED });
       }
+    }
+  } else if (id === 0) {
+    const article = new Article();
+    article.title = title;
+    article.content = content;
+    article.is_draft = true;
+    article.create_time = new Date();
+    article.update_time = new Date();
+    article.rel_id = 0;
+    article.is_delete = false;
+    article.like_counts = 0;
+    article.views = 0;
+
+    if (user) {
+      article.user = user;
+    }
+
+    const newTags = tags?.map((tag) => {
+      tag.article_count = tag?.article_count + 1;
+      return tag;
+    });
+    article.tags = newTags;
+    const resArticle = await articleRepo.save(article);
+    if (resArticle) {
+      res.status(200).json({ data: resArticle, code: 0, msg: '保存成功' });
+    } else {
+      res.status(200).json({ ...EXCEPTION_ARTICLE.SAVE_FAILED });
     }
   }
 }

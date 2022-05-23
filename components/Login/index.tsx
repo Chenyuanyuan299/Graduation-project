@@ -26,6 +26,7 @@ const Login = (props: IProps) => {
 
   const handleClose = () => {
     onClose && onClose();
+    setForm({ phone: '', verify: '' });
   };
 
   const handleGetVerifyCode = () => {
@@ -49,6 +50,14 @@ const Login = (props: IProps) => {
   };
 
   const handleLogin = () => {
+    if (!form.phone) {
+      message.warning('手机号不能为空！');
+      return;
+    } else if (!form.verify) {
+      message.warning('验证码不能为空！');
+      return;
+    }
+
     request
       .post('/api/user/login', {
         ...form,
